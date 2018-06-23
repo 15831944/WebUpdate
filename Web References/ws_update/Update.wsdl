@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.hustcad.com/IntePLM/XMLWEBServices" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.hustcad.com/IntePLM/XMLWEBServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IntePLM WEBServices</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.hustcad.com/IntePLM/XMLWEBServices">
+      <s:element name="GetAllUpdateInfosCompressed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUpdateInfosCompressedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUpdateInfosCompressedResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllUpdateInfosAndBinary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUpdateInfosAndBinaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUpdateInfosAndBinaryResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileInfoXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileInfoXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileInfoXMLResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileCompressed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fpath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateInfos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="softname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bin" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="time" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFileCompressedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileCompressedResult" type="tns:UpdateInfos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFileCompressed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fpath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFileCompressedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFileCompressedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllUpdateInfosCompressedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateInfosCompressed" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUpdateInfosCompressedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateInfosCompressedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUpdateInfosAndBinarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateInfosAndBinary" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUpdateInfosAndBinarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateInfosAndBinaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileInfoXML" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileInfoXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileCompressedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileCompressed" />
+  </wsdl:message>
+  <wsdl:message name="GetFileCompressedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileCompressedResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileCompressedSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFileCompressed" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileCompressedSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFileCompressedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UpdateSoap">
+    <wsdl:operation name="GetAllUpdateInfosCompressed">
+      <wsdl:input message="tns:GetAllUpdateInfosCompressedSoapIn" />
+      <wsdl:output message="tns:GetAllUpdateInfosCompressedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateInfosAndBinary">
+      <wsdl:input message="tns:GetAllUpdateInfosAndBinarySoapIn" />
+      <wsdl:output message="tns:GetAllUpdateInfosAndBinarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfoXML">
+      <wsdl:input message="tns:GetFileInfoXMLSoapIn" />
+      <wsdl:output message="tns:GetFileInfoXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileCompressed">
+      <wsdl:input message="tns:GetFileCompressedSoapIn" />
+      <wsdl:output message="tns:GetFileCompressedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFileCompressed">
+      <wsdl:input message="tns:UploadFileCompressedSoapIn" />
+      <wsdl:output message="tns:UploadFileCompressedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UpdateSoap" type="tns:UpdateSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllUpdateInfosCompressed">
+      <soap:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetAllUpdateInfosCompressed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateInfosAndBinary">
+      <soap:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetAllUpdateInfosAndBinary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfoXML">
+      <soap:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetFileInfoXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileCompressed">
+      <soap:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetFileCompressed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFileCompressed">
+      <soap:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/UploadFileCompressed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UpdateSoap12" type="tns:UpdateSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllUpdateInfosCompressed">
+      <soap12:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetAllUpdateInfosCompressed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateInfosAndBinary">
+      <soap12:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetAllUpdateInfosAndBinary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfoXML">
+      <soap12:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetFileInfoXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileCompressed">
+      <soap12:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/GetFileCompressed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFileCompressed">
+      <soap12:operation soapAction="http://www.hustcad.com/IntePLM/XMLWEBServices/UploadFileCompressed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Update">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IntePLM WEBServices</wsdl:documentation>
+    <wsdl:port name="UpdateSoap" binding="tns:UpdateSoap">
+      <soap:address location="http://localhost/teamspaceupdate/Update.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UpdateSoap12" binding="tns:UpdateSoap12">
+      <soap12:address location="http://localhost/teamspaceupdate/Update.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
